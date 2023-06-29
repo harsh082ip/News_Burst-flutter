@@ -23,6 +23,7 @@ class _HomePageState extends State<HomePage> {
           itemCount: 10,
           scrollDirection: Axis.vertical,
           itemBuilder: (context, index) {
+            FetchNews.fetchNews();
             double scrHeight = MediaQuery.of(context).size.height;
             print('Screen Height: $scrHeight');
             return NewsContainer(
@@ -31,6 +32,8 @@ class _HomePageState extends State<HomePage> {
               newsHeading:
                   'Generative AI promises a new frontier for Indian companies',
               newsDesc:
+                  'With generative AI booming, the human value will lie in performing high-value jobs',
+              newsCnt:
                   'With generative AI booming, the human value will lie in performing high-value jobs, such as engaging with customers and building relationships,” said Deepak Pargaonkar. As more and more companies are embracing generative AI, there is optimism and some apprehension.',
               newsUrl:
                   'https://indianexpress.com/article/technology/tech-news-technology/generative-ai-in-india-deepak-pargaonkar-salesforce-interview-8690944/',
