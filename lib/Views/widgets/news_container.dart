@@ -22,11 +22,12 @@ class NewsContainer extends StatelessWidget {
       width: MediaQuery.of(context).size.width,
       child: Column(
         children: [
-          Image.network(
+          FadeInImage.assetNetwork(
               height: MediaQuery.of(context).size.height * 0.430,
               width: MediaQuery.of(context).size.width,
               fit: BoxFit.cover,
-              imgUrl),
+              placeholder: 'assets/images/placeholder_img.avif',
+              image: imgUrl),
           SizedBox(
             height: 5.0,
           ),
@@ -49,10 +50,11 @@ class NewsContainer extends StatelessWidget {
                       fontWeight: FontWeight.w400),
                 ),
                 Text(
-                  newsCnt.length > 250
-                      ? newsCnt.substring(0, 250)
-                      : newsCnt.substring(
-                          0, newsCnt.length > 15 ? newsCnt.length - 15 : 0),
+                  newsCnt == '---'
+                      ? newsCnt
+                      : newsCnt.length > 250
+                          ? '${newsCnt.substring(0, 250)}...'
+                          : '${newsCnt.substring(0, newsCnt.length > 15 ? newsCnt.length - 15 : 0)}...',
                   style: TextStyle(fontSize: 17.0, fontWeight: FontWeight.w400),
                 ),
               ],

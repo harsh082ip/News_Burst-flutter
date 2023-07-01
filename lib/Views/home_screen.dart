@@ -11,17 +11,14 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  late NewsArticle newsArticle = NewsArticle(
-      imgUrl:
-          'https://images.unsplash.com/photo-1504711434969-e33886168f5c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
-      newshead: 'newshead',
-      newsDesc: 'newsDesc',
-      newsCnt: 'newsCnt',
-      newsUrl: 'newsUrl');
+  late NewsArticle newsArticle;
+  bool isLoading = true;
 
   getLatestNews() async {
     newsArticle = await FetchNews.fetchNews();
-    setState(() {});
+    setState(() {
+      isLoading = false;
+    });
   }
 
   @override
@@ -38,18 +35,23 @@ class _HomePageState extends State<HomePage> {
           scrollDirection: Axis.vertical,
           onPageChanged: (value) {
             getLatestNews();
+            isLoading = true;
           },
           itemBuilder: (context, index) {
             // FetchNews.fetchNews();
             double scrHeight = MediaQuery.of(context).size.height;
             print('Screen Height: $scrHeight');
-            return NewsContainer(
-              imgUrl: newsArticle.imgUrl,
-              newsHeading: newsArticle.newshead,
-              newsDesc: newsArticle.newsDesc,
-              newsCnt: newsArticle.newsCnt,
-              newsUrl: newsArticle.newsUrl,
-            );
+            return isLoading == true
+                ? Center(
+                    child: CircularProgressIndicator(),
+                  )
+                : NewsContainer(
+                    imgUrl: newsArticle.imgUrl,
+                    newsHeading: newsArticle.newshead,
+                    newsDesc: newsArticle.newsDesc,
+                    newsCnt: newsArticle.newsCnt,
+                    newsUrl: newsArticle.newsUrl,
+                  );
           }),
     );
   }
