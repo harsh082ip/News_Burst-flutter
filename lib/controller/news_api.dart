@@ -3,6 +3,7 @@ import 'dart:math';
 
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
+import 'package:newsburst/models/newsArticle.dart';
 
 /* API Links
 
@@ -46,7 +47,7 @@ class FetchNews {
     "usa-today",
   ];
 
-  static fetchNews() async {
+  static Future<NewsArticle> fetchNews() async {
     final random = Random();
     var source = sourcesId[random.nextInt(sourcesId.length)];
     print(source);
@@ -62,5 +63,8 @@ class FetchNews {
     final newRandom = Random();
     var myarticle = articles[random.nextInt(articles.length)];
     print(myarticle);
+
+    // from model
+    return NewsArticle.fromApitoApp(myarticle);
   }
 }

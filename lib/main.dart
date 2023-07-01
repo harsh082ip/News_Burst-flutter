@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.light(useMaterial3: true),
       debugShowCheckedModeBanner: false,
       title: 'News Burst',
-      home: HomePage(),
+      home: const HomePage(),
     );
   }
 }
