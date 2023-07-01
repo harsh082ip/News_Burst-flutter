@@ -67,8 +67,8 @@ class NewsContainer extends StatelessWidget {
                 padding: const EdgeInsets.only(right: 10.0, bottom: 8.0),
                 child: ElevatedButton(
                     style: ButtonStyle(
-                        backgroundColor:
-                            MaterialStateProperty.all(Colors.redAccent)),
+                        backgroundColor: MaterialStateProperty.all(
+                            Color.fromARGB(255, 253, 132, 105))),
                     onPressed: () {
                       Navigator.push(
                           context,

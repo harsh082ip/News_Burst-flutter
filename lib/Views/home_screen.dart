@@ -42,8 +42,10 @@ class _HomePageState extends State<HomePage> {
             double scrHeight = MediaQuery.of(context).size.height;
             print('Screen Height: $scrHeight');
             return isLoading == true
-                ? Center(
-                    child: CircularProgressIndicator(),
+                ? const Center(
+                    child: CircularProgressIndicator(
+                      color: Color.fromARGB(255, 253, 132, 105),
+                    ),
                   )
                 : NewsContainer(
                     imgUrl: newsArticle.imgUrl,
