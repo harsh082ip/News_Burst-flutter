@@ -48,7 +48,9 @@ class NewsContainer extends StatelessWidget {
                       fontWeight: FontWeight.w400),
                 ),
                 Text(
-                  newsCnt,
+                  newsCnt.length > 250
+                      ? newsCnt.substring(0, 250)
+                      : "${newsCnt.toString().substring(0, newsCnt.length - 15)} ...",
                   style: TextStyle(fontSize: 17.0, fontWeight: FontWeight.w400),
                 ),
               ],
