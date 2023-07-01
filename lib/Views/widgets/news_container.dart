@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:newsburst/Views/detailed_view.dart';
 
 class NewsContainer extends StatelessWidget {
   String imgUrl;
@@ -50,7 +51,8 @@ class NewsContainer extends StatelessWidget {
                 Text(
                   newsCnt.length > 250
                       ? newsCnt.substring(0, 250)
-                      : "${newsCnt.toString().substring(0, newsCnt.length - 15)} ...",
+                      : newsCnt.substring(
+                          0, newsCnt.length > 15 ? newsCnt.length - 15 : 0),
                   style: TextStyle(fontSize: 17.0, fontWeight: FontWeight.w400),
                 ),
               ],
@@ -65,7 +67,13 @@ class NewsContainer extends StatelessWidget {
                     style: ButtonStyle(
                         backgroundColor:
                             MaterialStateProperty.all(Colors.redAccent)),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  DetailedView(newsUrl: newsUrl)));
+                    },
                     child: const Text(
                       'Read more',
                       style: TextStyle(color: Colors.white, fontSize: 15.0),
