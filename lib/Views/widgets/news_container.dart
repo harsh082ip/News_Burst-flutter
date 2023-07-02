@@ -28,23 +28,24 @@ class NewsContainer extends StatelessWidget {
               fit: BoxFit.cover,
               placeholder: 'assets/images/placeholder_img.avif',
               image: imgUrl),
-          SizedBox(
+          const SizedBox(
             height: 5.0,
           ),
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 8.0),
+            padding: const EdgeInsets.symmetric(horizontal: 8.0),
             child: Column(
               children: [
                 Text(
                   newsHeading,
-                  style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold),
+                  style: const TextStyle(
+                      fontSize: 22.0, fontWeight: FontWeight.bold),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 5.0,
                 ),
                 Text(
                   newsDesc,
-                  style: TextStyle(
+                  style: const TextStyle(
                       fontSize: 14.0,
                       color: Colors.grey,
                       fontWeight: FontWeight.w400),
@@ -55,12 +56,13 @@ class NewsContainer extends StatelessWidget {
                       : newsCnt.length > 250
                           ? '${newsCnt.substring(0, 250)}...'
                           : '${newsCnt.substring(0, newsCnt.length > 15 ? newsCnt.length - 15 : 0)}...',
-                  style: TextStyle(fontSize: 17.0, fontWeight: FontWeight.w400),
+                  style: const TextStyle(
+                      fontSize: 17.0, fontWeight: FontWeight.w400),
                 ),
               ],
             ),
           ),
-          Spacer(),
+          const Spacer(),
           Align(
               alignment: Alignment.bottomRight,
               child: Padding(
@@ -68,7 +70,7 @@ class NewsContainer extends StatelessWidget {
                 child: ElevatedButton(
                     style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all(
-                            Color.fromARGB(255, 253, 132, 105))),
+                            const Color.fromARGB(255, 253, 132, 105))),
                     onPressed: () {
                       Navigator.push(
                           context,

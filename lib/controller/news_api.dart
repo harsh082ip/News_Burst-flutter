@@ -47,7 +47,7 @@ class FetchNews {
     print(source);
     print('after...');
     Response response = await get(Uri.parse(
-        'https://newsapi.org/v2/top-headlines?sources=$source&apiKey=[Your API Key]'));
+        'https://newsapi.org/v2/top-headlines?sources=$source&apiKey=0df3865357674f01bca7ec1636eb98fe'));
 
     Map body_data = jsonDecode(response.body);
     List articles = body_data['articles'];
