@@ -30,8 +30,8 @@ class _DetailedViewState extends State<DetailedView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 253, 132, 105),
-        title: Text(
+        backgroundColor: const Color.fromARGB(255, 253, 132, 105),
+        title: const Text(
           'News Burst',
           style: TextStyle(color: Colors.white),
         ),
@@ -58,8 +58,10 @@ class _DetailedViewState extends State<DetailedView> {
             },
           ),
           if (_isLoading)
-            Center(
-              child: CircularProgressIndicator(),
+            const Center(
+              child: CircularProgressIndicator(
+                color: Color.fromARGB(255, 253, 132, 105),
+              ),
             ),
         ],
       ),

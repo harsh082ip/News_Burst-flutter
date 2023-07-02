@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:newsburst/Views/home_screen.dart';
+import 'package:newsburst/Views/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,7 +15,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.light(useMaterial3: true),
       debugShowCheckedModeBanner: false,
       title: 'News Burst',
-      home: const HomePage(),
+      home: const SplashScreen(),
+      routes: {
+        '/home': (context) => const HomePage(),
+      },
     );
   }
 }
