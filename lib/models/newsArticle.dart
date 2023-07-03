@@ -4,13 +4,15 @@ class NewsArticle {
   String newsDesc;
   String newsCnt;
   String newsUrl;
+  String newsauthor;
 
   NewsArticle(
       {required this.imgUrl,
       required this.newshead,
       required this.newsDesc,
       required this.newsCnt,
-      required this.newsUrl});
+      required this.newsUrl,
+      required this.newsauthor});
 
   static NewsArticle fromApitoApp(Map<String, dynamic> article) {
     return NewsArticle(
@@ -20,6 +22,7 @@ class NewsArticle {
         newsDesc: article['description'] ?? '---',
         newsCnt: article['content'] ?? '---',
         newsUrl: article['url'] ??
-            'https://news.google.com/home?hl=en-IN&gl=IN&ceid=IN:en');
+            'https://news.google.com/home?hl=en-IN&gl=IN&ceid=IN:en',
+        newsauthor: article['author'] ?? 'undefined');
   }
 }

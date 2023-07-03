@@ -7,13 +7,15 @@ class NewsContainer extends StatelessWidget {
   String newsDesc;
   String newsUrl;
   String newsCnt;
+  String newsAuthor;
   NewsContainer(
       {super.key,
       required this.imgUrl,
       required this.newsHeading,
       required this.newsDesc,
       required this.newsUrl,
-      required this.newsCnt});
+      required this.newsCnt,
+      required this.newsAuthor});
 
   @override
   Widget build(BuildContext context) {
@@ -62,27 +64,49 @@ class NewsContainer extends StatelessWidget {
               ],
             ),
           ),
+          SizedBox(
+            height: 5.0,
+          ),
+          newsAuthor == 'undefined'
+              ? const Text('')
+              : Align(
+                  alignment: Alignment.topLeft,
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 8.0),
+                    child: Text(
+                      'Author: $newsAuthor',
+                      style: const TextStyle(
+                          fontSize: 20.0,
+                          color: Color.fromARGB(255, 0, 0, 0),
+                          fontFamily: 'Agdasima',
+                          letterSpacing: 3.0,
+                          fontWeight: FontWeight.w600,
+                          decoration: TextDecoration.underline),
+                    ),
+                  )),
           const Spacer(),
           Align(
-              alignment: Alignment.bottomRight,
-              child: Padding(
-                padding: const EdgeInsets.only(right: 10.0, bottom: 8.0),
-                child: ElevatedButton(
-                    style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(
-                            const Color.fromARGB(255, 253, 132, 105))),
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) =>
-                                  DetailedView(newsUrl: newsUrl)));
-                    },
-                    child: const Text(
-                      'Read more',
-                      style: TextStyle(color: Colors.white, fontSize: 15.0),
-                    )),
-              ))
+            alignment: Alignment.bottomRight,
+            child: Padding(
+              padding: const EdgeInsets.only(right: 10.0, bottom: 8.0),
+              child: ElevatedButton(
+                style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(
+                        const Color.fromARGB(255, 253, 132, 105))),
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              DetailedView(newsUrl: newsUrl)));
+                },
+                child: const Text(
+                  'Read more',
+                  style: TextStyle(color: Colors.white, fontSize: 15.0),
+                ),
+              ),
+            ),
+          )
         ],
       ),
     );
