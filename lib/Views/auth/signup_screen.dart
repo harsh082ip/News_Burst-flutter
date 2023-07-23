@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:newsburst/Views/auth/login_screen.dart';
 import 'package:newsburst/controller/firebase_auth.dart';
 
 class SignUp_Screen extends StatelessWidget {
@@ -12,7 +14,7 @@ class SignUp_Screen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 253, 132, 105),
+      backgroundColor: const Color.fromARGB(255, 253, 132, 105),
       body: SingleChildScrollView(
         child: SizedBox(
           height: MediaQuery.of(context).size.height,
@@ -20,28 +22,29 @@ class SignUp_Screen extends StatelessWidget {
           child: Column(
             children: [
               Image.asset('assets/images/login_rmbg.png'),
-              Text(
+              const Text(
                 'SignUp',
                 style: TextStyle(fontSize: 30.0, color: Colors.white),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 75.0,
               ),
               Container(
-                margin: EdgeInsets.symmetric(horizontal: 10.0),
+                margin: const EdgeInsets.symmetric(horizontal: 10.0),
                 child: TextFormField(
+                  style: const TextStyle(color: Colors.white),
                   controller: nameTextEditingController,
                   keyboardType: TextInputType.name,
                   decoration: InputDecoration(
                     hintText: 'John Fernendez',
-                    hintStyle: TextStyle(color: Colors.white),
+                    hintStyle: const TextStyle(color: Colors.white),
                     enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
+                      borderSide: const BorderSide(
                           color: Colors.white, style: BorderStyle.solid),
                       borderRadius: BorderRadius.circular(25.0),
                     ),
                     border: OutlineInputBorder(
-                      borderSide: BorderSide(
+                      borderSide: const BorderSide(
                           color: Colors.white, style: BorderStyle.solid),
                       borderRadius: BorderRadius.circular(25.0),
                     ),
@@ -50,30 +53,31 @@ class SignUp_Screen extends StatelessWidget {
                       color: Colors.white,
                     ),
                     labelText: 'Name',
-                    labelStyle: TextStyle(
+                    labelStyle: const TextStyle(
                       color: Colors.white,
                     ),
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 25.0,
               ),
               Container(
-                margin: EdgeInsets.symmetric(horizontal: 10.0),
+                margin: const EdgeInsets.symmetric(horizontal: 10.0),
                 child: TextFormField(
+                  style: const TextStyle(color: Colors.white),
                   controller: emailTextEditingController,
                   keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(
                     hintText: 'abc@example.com',
-                    hintStyle: TextStyle(color: Colors.white),
+                    hintStyle: const TextStyle(color: Colors.white),
                     enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
+                      borderSide: const BorderSide(
                           color: Colors.white, style: BorderStyle.solid),
                       borderRadius: BorderRadius.circular(25.0),
                     ),
                     border: OutlineInputBorder(
-                      borderSide: BorderSide(
+                      borderSide: const BorderSide(
                           color: Colors.white, style: BorderStyle.solid),
                       borderRadius: BorderRadius.circular(25.0),
                     ),
@@ -82,30 +86,32 @@ class SignUp_Screen extends StatelessWidget {
                       color: Colors.white,
                     ),
                     labelText: 'Email',
-                    labelStyle: TextStyle(
+                    labelStyle: const TextStyle(
                       color: Colors.white,
                     ),
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 25.0,
               ),
               Container(
-                margin: EdgeInsets.symmetric(horizontal: 10.0),
+                margin: const EdgeInsets.symmetric(horizontal: 10.0),
                 child: TextFormField(
+                  style: const TextStyle(color: Colors.white),
+                  obscureText: true,
                   controller: passwordTextEditingController,
                   keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(
                     hintText: 'abc@example.com',
-                    hintStyle: TextStyle(color: Colors.white),
+                    hintStyle: const TextStyle(color: Colors.white),
                     enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
+                      borderSide: const BorderSide(
                           color: Colors.white, style: BorderStyle.solid),
                       borderRadius: BorderRadius.circular(25.0),
                     ),
                     border: OutlineInputBorder(
-                      borderSide: BorderSide(
+                      borderSide: const BorderSide(
                           color: Colors.white, style: BorderStyle.solid),
                       borderRadius: BorderRadius.circular(25.0),
                     ),
@@ -114,18 +120,18 @@ class SignUp_Screen extends StatelessWidget {
                       color: Colors.white,
                     ),
                     labelText: 'password',
-                    labelStyle: TextStyle(
+                    labelStyle: const TextStyle(
                       color: Colors.white,
                     ),
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 55,
               ),
               Container(
                 height: 48.0,
-                margin: EdgeInsets.symmetric(horizontal: 30.0),
+                margin: const EdgeInsets.symmetric(horizontal: 30.0),
                 width: MediaQuery.of(context).size.width,
                 child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
@@ -133,7 +139,7 @@ class SignUp_Screen extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(6.0))),
                     onPressed: () {
-                      Center(
+                      const Center(
                         child: CircularProgressIndicator(),
                       );
                       Auth.instance.Signup(
@@ -141,7 +147,7 @@ class SignUp_Screen extends StatelessWidget {
                           emailTextEditingController.text,
                           passwordTextEditingController.text);
                     },
-                    child: Text(
+                    child: const Text(
                       'SignUp',
                       style: TextStyle(fontSize: 22.0, color: Colors.black),
                     )),
@@ -149,13 +155,15 @@ class SignUp_Screen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
+                  const Text(
                     'already have an account?',
                     style: TextStyle(fontSize: 18.0),
                   ),
                   TextButton(
-                      onPressed: () {},
-                      child: Text(
+                      onPressed: () {
+                        Get.off(LoginScreen());
+                      },
+                      child: const Text(
                         'login here',
                         style: TextStyle(fontSize: 18.0),
                       ))

@@ -12,7 +12,7 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 253, 132, 105),
+      backgroundColor: const Color.fromARGB(255, 253, 132, 105),
       body: SingleChildScrollView(
         child: SizedBox(
           height: MediaQuery.of(context).size.height,
@@ -20,28 +20,29 @@ class LoginScreen extends StatelessWidget {
           child: Column(
             children: [
               Image.asset('assets/images/login_rmbg.png'),
-              Text(
+              const Text(
                 'Login',
                 style: TextStyle(fontSize: 30.0, color: Colors.white),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 75.0,
               ),
               Container(
-                margin: EdgeInsets.symmetric(horizontal: 10.0),
+                margin: const EdgeInsets.symmetric(horizontal: 10.0),
                 child: TextFormField(
+                  style: const TextStyle(color: Colors.white),
                   controller: emailTextEditingController,
                   keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(
                     hintText: 'abc@example.com',
-                    hintStyle: TextStyle(color: Colors.white),
+                    hintStyle: const TextStyle(color: Colors.white),
                     enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
+                      borderSide: const BorderSide(
                           color: Colors.white, style: BorderStyle.solid),
                       borderRadius: BorderRadius.circular(25.0),
                     ),
                     border: OutlineInputBorder(
-                      borderSide: BorderSide(
+                      borderSide: const BorderSide(
                           color: Colors.white, style: BorderStyle.solid),
                       borderRadius: BorderRadius.circular(25.0),
                     ),
@@ -50,30 +51,32 @@ class LoginScreen extends StatelessWidget {
                       color: Colors.white,
                     ),
                     labelText: 'Email',
-                    labelStyle: TextStyle(
+                    labelStyle: const TextStyle(
                       color: Colors.white,
                     ),
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 25.0,
               ),
               Container(
-                margin: EdgeInsets.symmetric(horizontal: 10.0),
+                margin: const EdgeInsets.symmetric(horizontal: 10.0),
                 child: TextFormField(
+                  style: const TextStyle(color: Colors.white),
+                  obscureText: true,
                   controller: passwordTextEditingController,
                   keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(
                     hintText: 'abc@example.com',
-                    hintStyle: TextStyle(color: Colors.white),
+                    hintStyle: const TextStyle(color: Colors.white),
                     enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
+                      borderSide: const BorderSide(
                           color: Colors.white, style: BorderStyle.solid),
                       borderRadius: BorderRadius.circular(25.0),
                     ),
                     border: OutlineInputBorder(
-                      borderSide: BorderSide(
+                      borderSide: const BorderSide(
                           color: Colors.white, style: BorderStyle.solid),
                       borderRadius: BorderRadius.circular(25.0),
                     ),
@@ -82,18 +85,18 @@ class LoginScreen extends StatelessWidget {
                       color: Colors.white,
                     ),
                     labelText: 'password',
-                    labelStyle: TextStyle(
+                    labelStyle: const TextStyle(
                       color: Colors.white,
                     ),
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 55,
               ),
               Container(
                 height: 48.0,
-                margin: EdgeInsets.symmetric(horizontal: 30.0),
+                margin: const EdgeInsets.symmetric(horizontal: 30.0),
                 width: MediaQuery.of(context).size.width,
                 child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
@@ -104,7 +107,7 @@ class LoginScreen extends StatelessWidget {
                       Auth.instance.login(emailTextEditingController.text,
                           passwordTextEditingController.text);
                     },
-                    child: Text(
+                    child: const Text(
                       'Login',
                       style: TextStyle(fontSize: 22.0, color: Colors.black),
                     )),
@@ -112,15 +115,15 @@ class LoginScreen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
+                  const Text(
                     'don\'t have an account?',
                     style: TextStyle(fontSize: 18.0),
                   ),
                   TextButton(
                       onPressed: () {
-                        Get.to(SignUp_Screen());
+                        Get.off(SignUp_Screen());
                       },
-                      child: Text(
+                      child: const Text(
                         'Create Here',
                         style: TextStyle(fontSize: 18.0),
                       ))
