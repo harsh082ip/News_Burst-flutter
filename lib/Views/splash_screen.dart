@@ -1,7 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:newsburst/Views/auth/login_screen.dart';
 import 'package:newsburst/Views/auth/signup_screen.dart';
+import 'package:newsburst/Views/home_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -15,7 +17,8 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Future.delayed(const Duration(milliseconds: 1600), () {
-      Get.to(LoginScreen());
+      User? user = FirebaseAuth.instance.currentUser;
+      user != null ? Get.to(const HomePage()) : Get.to(LoginScreen());
     });
   }
 
