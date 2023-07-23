@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:newsburst/Views/auth/login_screen.dart';
+import 'package:newsburst/Views/auth/signup_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -12,7 +15,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Future.delayed(const Duration(milliseconds: 1600), () {
-      Navigator.pushReplacementNamed(context, '/home');
+      Get.to(LoginScreen());
     });
   }
 

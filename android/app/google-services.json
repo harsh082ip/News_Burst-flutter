@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "846558151714",
+    "project_id": "newsburst-flutter",
+    "storage_bucket": "newsburst-flutter.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:846558151714:android:ef3521adb5eac55058b67b",
+        "android_client_info": {
+          "package_name": "com.harsh082ip.newsburst.newsburst"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "846558151714-t09utcrnpel7skgkasavus05inko4br9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyByhRmib7-3MiOiCb_dF1USjnyNOfvez8w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "846558151714-t09utcrnpel7skgkasavus05inko4br9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
